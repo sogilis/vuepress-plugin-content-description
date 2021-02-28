@@ -1,19 +1,20 @@
-# vuepress-plugin-first-lines
+# vuepress-plugin-content-description
 
-Vuepress plugin to add first lines to page data
+Vuepress plugin auto generate content description (or content summary) based
+on the first words of the content.
 
 ## Install
 
 ```bash
-yarn add -D https://github.com/sogilis/vuepress-plugin-first-lines
-# OR npm install -D git+https://github.com/sogilis/vuepress-plugin-first-lines
+yarn add -D https://github.com/sogilis/vuepress-plugin-content-description
+# OR npm install -D git+https://github.com/sogilis/vuepress-plugin-content-description
 ```
 
 ## Usage
 
 ```javascript
 module.exports = {
-  plugins: ['vuepress-plugin-first-lines'],
+  plugins: ['vuepress-plugin-content-description'],
 };
 ```
 
@@ -60,7 +61,7 @@ Example:
 ```javascript
 plugins: [
   [
-    'vuepress-plugin-first-lines',
+    'vuepress-plugin-content-description',
     {
       excludes: ['/about', '/tag/.*'],
     },
@@ -68,41 +69,25 @@ plugins: [
 ];
 ```
 
-### indexStart
+### numberOfWords
 
 - Type: `number`
-- Default: `0`
+- Default: 70
 
-The index of the first character to include in the returned substring.
+The number of words extract
+
+First XX words of the page content
+
+Default is 70, as Hugo https://gohugo.io/content-management/summaries/
 
 Example:
 
 ```javascript
 plugins: [
   [
-    'vuepress-plugin-first-lines',
+    'vuepress-plugin-content-description',
     {
-      indexStart: 2,
-    },
-  ],
-];
-```
-
-### indexEnd
-
-- Type: `number`
-- Default: `200`
-
-The index of the first character to exclude from the returned substring.
-
-Example:
-
-```javascript
-plugins: [
-  [
-    'vuepress-plugin-first-lines',
-    {
-      indexEnd: 300,
+      numberOfWords: 90,
     },
   ],
 ];

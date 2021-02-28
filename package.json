@@ -1,19 +1,20 @@
 {
-  "name": "vuepress-plugin-first-lines",
+  "name": "vuepress-plugin-content-description",
   "version": "0.1.0",
-  "description": "Vuepress plugin to add first lines to page data",
+  "description": "Vuepress plugin to auto generate content description if missing",
   "main": "index.js",
   "author": "JulioJu",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sogilis/vuepress-plugin-first-lines.git"
+    "url": "git+https://github.com/sogilis/vuepress-plugin-content-description.git"
   },
   "keywords": [
     "vue",
     "vuepress",
     "vuepress-plugin",
-    "first-lines"
+    "content-description",
+    "content-summary"
   ],
   "dependencies": {
     "remove-markdown": "0.3.0",

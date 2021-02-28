@@ -27,8 +27,10 @@ module.exports = (options = {}) => ({
       return $page;
     }
 
-    const indexStart = options.indexStart ? options.indexStart : 0;
-    const indexEnd = options.indexEnd ? options.indexEnd : 200;
+    /**
+     * Ass Hugo https://gohugo.io/content-management/summaries/
+     */
+    const numberOfWords = options.numberOfWords ? options.numberOfWords : 70;
 
     // Inspired from https://github.com/webmasterish/vuepress-plugin-feed/blob/3a7ecbeebe05ed759884d155b054a5ce1f646546/lib/Page.js#L277
     // DO NOT USE THEIR REGEX DEFINED AT https://github.com/webmasterish/vuepress-plugin-feed/blob/3a7ecbeebe05ed759884d155b054a5ce1f646546/index.js#L166 . Sometime it skip first paragraphs
@@ -40,7 +42,7 @@ module.exports = (options = {}) => ({
       REMOVE_MARKDOWN(_strippedContent.trim(), { useImgAltText: false }),
     );
     if (match) {
-      $page.description = match.substring(indexStart, indexEnd);
+      $page.description = match.split(' ').slice(0, numberOfWords - 1).join(' ');
     }
 
     return $page;
